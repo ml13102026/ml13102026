@@ -1,0 +1,33 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.naive_bayes import GaussianNB
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, confusion_matrix
+data = pd.DataFrame({
+ 'Age': [25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 28, 48, 58, 68],
+ 'BP': [110, 120, 118, 130, 135, 140, 145, 150, 155, 160, 115, 138, 148, 158],
+ 'Cholesterol': [180, 190, 200, 210, 220, 230, 240, 250, 260, 270, 185, 225, 245, 265],
+ 'HeartDisease': [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1]
+})
+X = data[['Age', 'BP', 'Cholesterol']]
+y = data['HeartDisease']
+X_train, X_test, y_train, y_test = train_test_split(
+ X, y, test_size=0.2, random_state=42
+)
+model = GaussianNB()
+model.fit(X_train, y_train)
+y_pred = model.predict(X_test)
+print("Accuracy:", accuracy_score(y_test, y_pred))
+print("Prediction:", model.predict([[45, 130, 220]])[0])
+# Visualization 1: Scatter plot of Cholesterol vs Blood Pressure
+plt.figure(figsize=(6, 4))
+sns.scatterplot(data=data, x='BP', y='Cholesterol', hue='HeartDisease', style='HeartDisease', s=100, palette='
+ Set1')
+plt.title("Blood Pressure vs Cholesterol with Target Classes")
+plt.show()
+# Visualization 2: Pairwise Relationship Heatmap of Features
+plt.figure(figsize=(6, 4))
+sns.heatmap(data.corr(), annot=True, cmap="coolwarm", fmt=".2f")
+plt.title("Correlation Map of Heart Disease Indicators")
+plt.show()
