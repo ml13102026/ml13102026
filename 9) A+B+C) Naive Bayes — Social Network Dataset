@@ -32,36 +32,61 @@ axes[0].set_title("Age Distribution by Purchase Decision")
 
 B) Naive Bayes — Titanic Dataset
 
+# Titanic Dataset
 import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.naive_bayes import GaussianNB
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, confusion_matrix
+
 data = sns.load_dataset('titanic')
+
 data = data[['pclass', 'age', 'sibsp', 'parch', 'fare', 'survived']]
 data = data.dropna()
+
 X = data.drop('survived', axis=1)
 y = data['survived']
+
 X_train, X_test, y_train, y_test = train_test_split(
- X, y, test_size=0.2, random_state=42
+    X, y, test_size=0.2, random_state=42
 )
+
 model = GaussianNB()
 model.fit(X_train, y_train)
+
 y_pred = model.predict(X_test)
+
 print("Accuracy:", accuracy_score(y_test, y_pred))
 print("Prediction:", model.predict([[3, 25, 0, 0, 10]])[0])
+
 # Visualization 1: Confusion Matrix Heatmap
 cm = confusion_matrix(y_test, y_pred)
+
 plt.figure(figsize=(6, 4))
-sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", xticklabels=['Not Survived', 'Survived'], yticklabels=['No
- t Survived', 'Survived'])
+sns.heatmap(
+    cm,
+    annot=True,
+    fmt="d",
+    cmap="Blues",
+    xticklabels=['Not Survived', 'Survived'],
+    yticklabels=['Not Survived', 'Survived']
+)
 plt.title("Titanic Naive Bayes: Confusion Matrix")
 plt.ylabel("Actual")
 plt.xlabel("Predicted")
 plt.show()
+
 # Visualization 2: Fare Distribution by Survival Class
 plt.figure(figsize=(6, 4))
-sns.stripplot(data=data, x='survived', y='fare', hue='pclass', palette='Set1', alpha=0.5, jitter=True)
+sns.stripplot(
+    data=data,
+    x='survived',
+    y='fare',
+    hue='pclass',
+    palette='Set1',
+    alpha=0.5,
+    jitter=True
+)
 plt.title("Fare vs Survival Grouped by Passenger Class")
 plt.show()
 
