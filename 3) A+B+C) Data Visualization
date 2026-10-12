@@ -1,4 +1,4 @@
-Data Visualization — Iris Dataset
+A) Data Visualization — Iris Dataset
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
@@ -19,7 +19,7 @@ sns.histplot(data=df, x='sepal length (cm)', hue='Species', kde=True)
 plt.title("Sepal Length Distribution")
 plt.show()
 
-Data Visualization — Titanic Dataset
+B) Data Visualization — Titanic Dataset
 
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -37,7 +37,7 @@ sns.histplot(data=df, x='age', hue='survived', bins=20, kde=True)
 plt.title("Age Distribution by Survival")
 plt.show()
 
-Data Visualization — Customer Sales Dataset
+C) Data Visualization — Customer Sales Dataset
 
 import matplotlib.pyplot as plt
 import pandas as pd
