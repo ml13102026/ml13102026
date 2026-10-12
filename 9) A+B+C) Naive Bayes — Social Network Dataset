@@ -1,4 +1,4 @@
-Social Network Dataset
+A) Social Network Dataset
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -30,7 +30,7 @@ fig, axes = plt.subplots(1, 2, figsize=(12, 4))
 sns.boxplot(ax=axes[0], data=data, x='Purchased', y='Age', palette='Set2')
 axes[0].set_title("Age Distribution by Purchase Decision")
 
-Naive Bayes — Titanic Dataset
+B) Naive Bayes — Titanic Dataset
 
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -65,7 +65,7 @@ sns.stripplot(data=data, x='survived', y='fare', hue='pclass', palette='Set1', a
 plt.title("Fare vs Survival Grouped by Passenger Class")
 plt.show()
 
-Naive Bayes — Heart Disease Dataset
+C) Naive Bayes — Heart Disease Dataset
 
 import pandas as pd
 import matplotlib.pyplot as plt
