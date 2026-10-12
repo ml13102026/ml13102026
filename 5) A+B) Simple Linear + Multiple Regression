@@ -1,4 +1,4 @@
-Simple Linear Regression on California Housing Dataset
+A) Simple Linear Regression on California Housing Dataset
 import matplotlib.pyplot as plt
 from sklearn.datasets import fetch_california_housing
 from sklearn.linear_model import LinearRegression
@@ -22,7 +22,7 @@ plt.ylabel("House Value (in $100,000)")
 plt.title("Simple Linear Regression - Housing")
 plt.show()
 
-Multiple Linear Regression for Housing Prediction
+B) Multiple Linear Regression for Housing Prediction
 
 import matplotlib.pyplot as plt
 from sklearn.datasets import fetch_california_housing
