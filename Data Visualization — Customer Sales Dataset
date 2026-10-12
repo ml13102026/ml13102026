@@ -1,0 +1,25 @@
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+df = pd.DataFrame({
+ 'Customer': ['A', 'B', 'C', 'D', 'E'],
+ 'Sales': [5000, 7000, 3000, 9000, 6000],
+ 'Profit': [1000, 2000, 500, 3000, 1500],
+ 'Orders': [5, 7, 3, 9, 6]
+})
+plt.figure(figsize=(6, 4))
+plt.bar(df['Customer'], df['Sales'])
+plt.title("Sales by Customer")
+plt.xlabel("Customer")
+plt.ylabel("Sales")
+plt.show()
+plt.figure(figsize=(6, 4))
+plt.plot(df['Customer'], df['Profit'], marker='o')
+plt.title("Profit by Customer")
+plt.xlabel("Customer")
+plt.ylabel("Profit")
+plt.show()
+plt.figure(figsize=(6, 4))
+sns.scatterplot(data=df, x='Orders', y='Sales', hue='Customer', s=150)
+plt.title("Orders vs Sales")
+plt.show()
