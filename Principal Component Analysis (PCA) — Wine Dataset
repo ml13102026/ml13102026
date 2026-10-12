@@ -1,0 +1,17 @@
+import matplotlib.pyplot as plt
+from sklearn.datasets import load_wine
+from sklearn.preprocessing import StandardScaler
+from sklearn.decomposition import PCA
+data = load_wine()
+X = StandardScaler().fit_transform(data.data)
+pca = PCA(n_components=2)
+X_pca = pca.fit_transform(X)
+plt.scatter(X_pca[:, 0], X_pca[:, 1], c=data.target, cmap='viridis')
+plt.xlabel("Principal Component 1")
+plt.ylabel("Principal Component 2")
+plt.title("PCA - Wine Dataset")
+plt.colorbar(label="Wine Class")
+plt.show()
+print("Original Features:", data.data.shape[1])
+print("Reduced Features:", X_pca.shape[1])
+print("Explained Variance:", pca.explained_variance_ratio_.sum())
