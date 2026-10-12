@@ -1,4 +1,4 @@
-Principal Component Analysis (PCA) — Wine Dataset
+A) Principal Component Analysis (PCA) — Wine Dataset
 import matplotlib.pyplot as plt
 from sklearn.datasets import load_wine
 from sklearn.preprocessing import StandardScaler
